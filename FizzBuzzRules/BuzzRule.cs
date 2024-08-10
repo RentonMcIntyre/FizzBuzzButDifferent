@@ -1,6 +1,6 @@
 ﻿namespace FizzBuzzRules
 {
-    [FizzBuzzRule]
+    [FizzBuzzRule(2)]
     public class BuzzRule : IFizzBuzzRule
     {
         /// <summary>

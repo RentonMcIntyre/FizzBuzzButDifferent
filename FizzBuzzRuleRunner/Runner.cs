@@ -25,7 +25,8 @@ namespace FizzBuzzRuleRunner
 
             var ruleTypes = ruleAssembly.GetTypes()
                                         .Where(type => typeof(IFizzBuzzRule).IsAssignableFrom(type)
-                                        && type.GetCustomAttribute<FizzBuzzRuleAttribute>() != null);
+                                        && type.GetCustomAttribute<FizzBuzzRuleAttribute>() != null)
+                                        .OrderBy(type => type.GetCustomAttribute<FizzBuzzRuleAttribute>()?.Order);
 
             InstantiateRules(ruleTypes);
         }
