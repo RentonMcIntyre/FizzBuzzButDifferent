@@ -47,13 +47,23 @@ namespace FizzBuzzRules.Tests
         }
 
         [Fact]
-        public void FizzRule_Returns_Null_For_Negative_Divisible_By_Three()
+        public void FizzRule_Returns_Null_For_Negative_Not_Divisible_By_Three()
         {
             var rule = new FizzRule();
 
             Assert.Null(rule?.GetRuleResult(-1));
             Assert.Null(rule?.GetRuleResult(-8));
             Assert.Null(rule?.GetRuleResult(-14));
+        }
+
+        [Fact]
+        public void FizzRule_Returns_Fizz_For_Negative_Divisible_By_Three()
+        {
+            var rule = new FizzRule();
+
+            Assert.Equal("Fizz", rule.GetRuleResult(-3));
+            Assert.Equal("Fizz", rule.GetRuleResult(-9));
+            Assert.Equal("Fizz", rule.GetRuleResult(-15));
         }
     }
 }
