@@ -10,6 +10,11 @@
         /// <returns>A string value "Fizz" or null</returns>
         public string? GetRuleResult(int number)
         {
+            if (number % 5 == 0)
+            {
+                return "Buzz";
+            }
+
             return null;
         }
     }
