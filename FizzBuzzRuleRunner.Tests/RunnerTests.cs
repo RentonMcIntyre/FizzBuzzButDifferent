@@ -19,5 +19,23 @@ namespace FizzBuzzRuleRunner.Tests
 
             Assert.Equal(2, runner.LoadedRuleNames.Count());
         }
+
+        [Fact]
+        public void Runner_Loads_Fizz_Rule()
+        {
+            var runner = new Runner();
+            runner.LoadRules();
+
+            Assert.Contains("FizzRule", runner.LoadedRuleNames);
+        }
+
+        [Fact]
+        public void Runner_Loads_Buzz_Rule()
+        {
+            var runner = new Runner();
+            runner.LoadRules();
+
+            Assert.Contains("BuzzRule", runner.LoadedRuleNames);
+        }
     }
 }
