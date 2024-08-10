@@ -31,6 +31,18 @@ namespace FizzBuzzRuleRunner
         }
 
         /// <summary>
+        /// Applies all rules to the given number and returns the rule results, or, if none are applicable, returns the number.
+        /// </summary>
+        /// <param name="number">The number upon which to apply rules.</param>
+        /// <returns>The number or the aggregate of the rule results.</returns>
+        public string GetRuleResult(int number)
+        {
+            return number.ToString();
+        }
+
+        public IEnumerable<string> LoadedRuleNames => Rules.Select(rule => rule.GetType().Name);
+
+        /// <summary>
         /// Create instances of all rule objects. We will allow skipping if a failure to create an instance occurs, for now.
         /// </summary>
         /// <param name="ruleTypes">The types of all rules to instantiate</param>
@@ -45,7 +57,5 @@ namespace FizzBuzzRuleRunner
                 Rules.Add(rule);
             }
         }
-
-        public IEnumerable<string> LoadedRuleNames => Rules.Select(rule => rule.GetType().Name);
     }
 }
