@@ -37,6 +37,19 @@ namespace FizzBuzzRuleRunner
         /// <returns>The number or the aggregate of the rule results.</returns>
         public string GetRuleResult(int number)
         {
+            string result = string.Empty;
+            foreach (var rule in Rules)
+            {
+                var ruleResult = rule.GetRuleResult(number);
+                if (ruleResult != null)
+                {
+                    result += ruleResult;
+                }
+            }
+
+            if (result != string.Empty)
+                return result;
+
             return number.ToString();
         }
 
